@@ -1,0 +1,16 @@
+# Java build files
+target/
+*.jar
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# Optional frontend (if not needed yet)
+quiz-frontend/

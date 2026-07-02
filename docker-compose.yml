@@ -1,0 +1,45 @@
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: questiondb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 15@Ar05
+    ports:
+      - "5432:5432"
+    networks:
+      - quiz-network
+
+  question-service:
+    build: ./question-service
+    container_name: question-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questiondb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 15@Ar05
+    networks:
+      - quiz-network
+
+  quiz-service:
+    build: ./quiz-service
+    container_name: quiz-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+      - question-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questiondb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 15@Ar05
+    networks:
+      - quiz-network
+
+networks:
+  quiz-network:
