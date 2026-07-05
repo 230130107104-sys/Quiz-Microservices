@@ -282,9 +282,9 @@ Compared to the original implementation, I added the following improvements:
 
 Backend Developer | Java | Spring Boot | Microservices
 
-GitHub: https://github.com/<YOUR_GITHUB_USERNAME>
+GitHub: https://github.com/
 
-LinkedIn: https://linkedin.com/in/<YOUR_LINKEDIN_USERNAME>
+LinkedIn: https://linkedin.com/in/
 
 ---
 
